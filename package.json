@@ -1,6 +1,6 @@
 {
 	"name": "m-vue3-cli",
-	"version": "0.0.1-beta.0",
+	"version": "0.0.1-beta.1",
 	"description": "m-vue3-cli 测试版本",
 	"main": "./sv-cli/bin/index.js",
 	"bin": {
@@ -10,14 +10,13 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
-		"type":"git",
+		"type": "git",
 		"url": "https://github.com/Yves-Zhang/monorepo-vue3-cli.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"devDependencies": {
-	},
+	"devDependencies": {},
 	"dependencies": {
 		"clean-webpack-plugin": "^4.0.0",
 		"mini-css-extract-plugin": "^2.6.0",
