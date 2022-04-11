@@ -2,13 +2,13 @@
  * @Author: yvesyfzhang
  * @Date: 2022-04-06 20:17:06
  * @LastEditors: yvesyfzhang
- * @LastEditTime: 2022-04-07 18:06:18
+ * @LastEditTime: 2022-04-11 15:44:44
  * @Description: file content
- * @FilePath: /temptate/src/pages/sv/App.vue
+ * @FilePath: /newProject/src/pages/tempProj/App.vue
 -->
 <template>
   <div class="appContent">
-    <div>组件示例</div>
+    <div>{{title}}</div>
     <div>{{ count }}</div>
     <div class="btn" @click="handleClick">按钮</div>
   </div>
@@ -23,6 +23,7 @@ export default defineComponent({
   components: {},
   data() {
     return {
+      title: "组件示例",
       count: 0,
     };
   },

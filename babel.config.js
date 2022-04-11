@@ -2,9 +2,9 @@
  * @Author: yvesyfzhang
  * @Date: 2022-04-06 20:24:13
  * @LastEditors: yvesyfzhang
- * @LastEditTime: 2022-04-06 20:25:58
+ * @LastEditTime: 2022-04-11 15:13:46
  * @Description: file content
- * @FilePath: /vue3-cli/babel.config.js
+ * @FilePath: /monorepo-vue3-cli/babel.config.js
  */
 module.exports = function (api) {
   api.cache(true)
@@ -26,7 +26,8 @@ module.exports = function (api) {
     ]
   ]
   const plugins = [
-    '@babel/proposal-class-properties'
+    '@babel/proposal-class-properties',
+		'@babel/plugin-transform-modules-commonjs'
   ]
 
   return {
