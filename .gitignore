@@ -1,0 +1,22 @@
+.DS_Store
+node_modules/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+result.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+result.json
+/coverage
+jest_html_reporters.html
+/wscache
+*.swp
+
+# mock动态文件不放入版本库
+/mock/.runtime.js
