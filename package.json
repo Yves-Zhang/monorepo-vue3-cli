@@ -1,7 +1,7 @@
 {
-	"name": "vue3-cli",
+	"name": "m-vue3-cli",
 	"version": "0.0.1-beta.0",
-	"description": "sv-vue3-cli 测试版本",
+	"description": "sv/vue3-cli 测试版本",
 	"main": "./sv-cli/bin/index.js",
 	"bin": {
 		"sv-vue3-cli": "./sv-cli/bin/index.js"
