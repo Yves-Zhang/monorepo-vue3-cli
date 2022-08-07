@@ -1,0 +1,94 @@
+// px 转换为vw单位
+@function vw($px) {
+  @return ($px / 750) * 100vw;
+}
+
+// px 转换为vw单位
+@function vh($px) {
+  // @return ($px / 1334) * 100vw;
+  @return ($px / 750) * 100vh;
+}
+
+@function longVh($px) {
+  @return ($px / 750) * 100vh;
+}
+
+@function wideVh($px) {
+  // @return ($px / 750) * 100vh;
+  @return ($px / 1334) * 100vw;
+}
+
+// px 转换为vmin单位
+@function vmin($px) {
+  @return ($px / 750) * 100vmin;
+}
+
+@mixin long-screen-only {
+  @media (min-aspect-ratio: 1334 / 750) {
+    @content;
+  }
+}
+
+@mixin wide-screen-only {
+  @media (max-aspect-ratio: 1334 / 750) {
+    @content;
+  }
+}
+
+// 横屏情况下，属性计算
+@mixin h-compute($prop, $value) {
+  @media (min-aspect-ratio: 1334 / 750) {
+    #{$prop}: vh($value);
+  }
+
+  @media (max-aspect-ratio: 1334 / 750) {
+    #{$prop}: wideVh($value);
+  }
+}
+
+@mixin h-text-shadow($offsetX, $offsetY, $blurRadius, $color) {
+  @media (min-aspect-ratio: 1334 / 750) {
+    text-shadow: vh($offsetX) vh($offsetY), vh($blurRadius) $color;
+  }
+
+  @media (max-aspect-ratio: 1334 / 750) {
+    text-shadow: wideVh($offsetX) wideVh($offsetY) wideVh($blurRadius) $color;
+  }
+}
+
+html {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+body {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+.generic-bg {
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fill-remain {
+  flex: 1 1;
+}
+
+// 安卓垂直居中的兼容类
+.vertical-hack {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
+  margin-top: 1px;
+}

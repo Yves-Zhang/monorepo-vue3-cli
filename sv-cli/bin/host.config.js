@@ -7,7 +7,8 @@
  * @FilePath: /cli/sv-cli/bin/host.config.js
  */
 const path = require('path');
-const srcPath = process.cwd();
+const { getRootPath } = require('../utils/getConfigs');
+const srcPath = getRootPath();
 
 let getConfig = function() {
 	const serverConfig = require(path.resolve(srcPath, 'local.config.js'));

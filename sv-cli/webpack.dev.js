@@ -10,9 +10,10 @@ const webpackMerge = require('webpack-merge');
 const path = require('path');
 const webpackConfig = require('./webpack.config');
 const webpack = require('webpack');
+const { getRootPath } = require('./utils/getConfigs');
 
 module.exports = () => {
-	const rootPath = process.cwd();
+	const rootPath = getRootPath();
 	const projectFile = process.env.SV_PROJ;
 
 	return webpackMerge.merge(
@@ -23,7 +24,7 @@ module.exports = () => {
 			],
 			output: {
 				filename: '[name].js',
-				path: path.resolve(__dirname, 'dist')
+				path: path.resolve(rootPath, 'dist')
 			},
 			plugins: [ new webpack.HotModuleReplacementPlugin() ]
 		},

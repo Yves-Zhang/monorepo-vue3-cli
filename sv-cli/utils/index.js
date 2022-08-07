@@ -116,11 +116,59 @@ function delDir(path) {
 	}
 }
 
+/**
+ * splicing path slice
+ * @param  {...any} args path splice
+ */
+function pathJoin(...args) {
+	let path = '';
+	const len = args.length;
+	for (let i = 0; i < len; i += 1) {
+		if (args[i].length) {
+			if (args[i].startsWith('/')) {
+				path += args[i];
+			} else {
+				path += `/${args[i]}`;
+			}
+			if (/\/$/.test(path)) {
+				path = path.slice(0, -1);
+			}
+		}
+	}
+	return path;
+}
+
+/**
+ * validate path
+ * @param {String} path path
+ */
+function validatePath(path) {
+	if (path.trim() === '' || path.trim() === '/') {
+		return false;
+	}
+	return /^[0-9a-zA-Z!_\-./\\]+$/g.test(path);
+}
+
+function traverse(fs, dir) {
+	let results = [];
+	const list = fs.readdirSync(dir);
+	list.forEach((file) => {
+		file = `${dir}/${file}`;
+		const stat = fs.statSync(file);
+		if (stat && stat.isDirectory()) results = results.concat(traverse(fs, file));
+		else results.push(file);
+	});
+	return results;
+}
+
 module.exports = {
 	checkoutFiles,
 	getFilesName,
 	fileIsExist,
 	readFileSync,
 	writeFileSync,
-	delDir
+	delDir,
+	pathJoin,
+	validatePath,
+	traverse
 };
