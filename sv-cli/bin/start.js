@@ -1,13 +1,4 @@
 #!/usr/bin/env node
-/*
- * @Author: yvesyfzhang
- * @Date: 2022-04-06 18:59:44
- * @LastEditors: yvesyfzhang
- * @LastEditTime: 2022-04-08 11:10:45
- * @Description: file content
- * @FilePath: /cli/sv-cli/bin/start.js
- */
-
 const chalk = require('chalk');
 const express = require('express'); //引入express
 const webpack = require('webpack');

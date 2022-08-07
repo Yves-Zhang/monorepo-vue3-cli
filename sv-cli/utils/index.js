@@ -1,12 +1,3 @@
-/*
- * @Author: yvesyfzhang
- * @Date: 2022-04-06 17:23:38
- * @LastEditors: yvesyfzhang
- * @LastEditTime: 2022-04-06 20:33:25
- * @Description: file content
- * @FilePath: /vue3-cli/sv-cli/utils/index.js
- */
-
 const fs = require('fs');
 const path = require('path');
 

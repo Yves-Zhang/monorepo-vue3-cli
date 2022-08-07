@@ -1,13 +1,4 @@
 #!/usr/bin/env node
-/*
- * @Author: yvesyfzhang
- * @Date: 2022-04-07 16:58:26
- * @LastEditors: yvesyfzhang yvesyfzhang@tencent.com
- * @LastEditTime: 2022-05-20 17:32:50
- * @Description: file content
- * @FilePath: /cli/sv-cli/bin/build.js
- */
-
 const config = require('../webpack.prod')
 const webpack = require('webpack')
 const ora = require('ora')

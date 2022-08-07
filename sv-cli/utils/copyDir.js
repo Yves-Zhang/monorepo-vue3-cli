@@ -1,11 +1,3 @@
-/*
- * @Author: yvesyfzhang
- * @Date: 2022-04-07 19:11:48
- * @LastEditors: yvesyfzhang
- * @LastEditTime: 2022-04-07 19:40:21
- * @Description: file content
- * @FilePath: /cli/sv-cli/utils/copyDir.js
- */
 const fs = require('fs');
 const stat = fs.stat;
 /*
