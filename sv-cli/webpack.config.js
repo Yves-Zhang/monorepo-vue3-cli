@@ -1,11 +1,3 @@
-/*
- * @Author: yvesyfzhang
- * @Date: 2022-04-06 17:18:15
- * @LastEditors: yvesyfzhang yvesyfzhang@tencent.com
- * @LastEditTime: 2022-06-07 15:40:43
- * @Description: file content
- * @FilePath: /workspace-sv/sv-cli/sv-cli/webpack.config.js
- */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -16,6 +8,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { getPageConfig, getRootPath } = require('./utils/getConfigs')
 const miniSVGDataURI = require('mini-svg-data-uri')
+const autoprefixer = require('autoprefixer')
+const tailwindCss = require('tailwindcss');
 
 module.exports = () => {
   const rootPath = getRootPath()
@@ -27,7 +21,7 @@ module.exports = () => {
     : `${rootPath}/index.html`
 
   const pageConfig = getPageConfig(projectFile)
-  const { variable = {}, pageTitle, htmlConfig={} } = pageConfig
+  const { variable = {}, pageTitle, htmlConfig = {}, tailwindcssConfig } = pageConfig
   const pageConfig_webpack = pageConfig.webpack || {}
   const aliasConfig = pageConfig_webpack.alias || {}
   const publicPathConfig = pageConfig_webpack.publicPath || undefined
@@ -107,6 +101,14 @@ module.exports = () => {
               options: {}
             },
             {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: tailwindcssConfig?.configPath ? [tailwindCss(tailwindcssConfig?.configPath), autoprefixer] : [autoprefixer]
+                }
+              }
+            },
+            {
               loader: 'less-loader',
               options: {
                 sourceMap: env !== 'production' ? true : false
@@ -131,6 +133,14 @@ module.exports = () => {
             {
               loader: 'css-loader',
               options: {}
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: tailwindcssConfig?.configPath ? [tailwindCss(tailwindcssConfig?.configPath), autoprefixer] : [autoprefixer]
+                }
+              }
             },
             {
               loader: 'sass-loader',
